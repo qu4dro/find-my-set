@@ -13,6 +13,15 @@ public class Request {
         this.token = token;
     }
 
+    public Request(String action, String nickname) {
+        this.action = action;
+        this.nickname = nickname;
+    }
+
+    public static Request RegisterRequest(String nick) {
+        return new Request("register", nick);
+    }
+
     public Request(String action, int token, ArrayList<Card> cards) {
         this.action = action;
         this.cards = cards;
