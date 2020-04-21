@@ -3,4 +3,6 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="login">Login</string>
     <string name="loginText">Введите свой логин</string>
+    <string name="getCards">Получить карты</string>
+    <string name="setCheck">Отправить сет</string>
 </resources>

@@ -18,8 +18,16 @@ public class Request {
         this.nickname = nickname;
     }
 
-    public static Request RegisterRequest(String nick) {
-        return new Request("register", nick);
+    public static Request RegisterRequest(String nickname, int token) {
+        return new Request("register", nickname, token);
+    }
+
+    public static Request FetchRequest(int token) {
+        return new Request("fetch_cards", token);
+    }
+
+    public static Request TakeSetRequest(int token, ArrayList<Card> cards) {
+        return new Request("take_set", token, cards);
     }
 
     public Request(String action, int token, ArrayList<Card> cards) {
@@ -33,4 +41,5 @@ public class Request {
         this.nickname = nickname;
         this.token = token;
     }
+
 }

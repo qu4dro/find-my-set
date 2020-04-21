@@ -1,9 +1,9 @@
 package ru.orlovvv;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -18,8 +18,13 @@ import java.net.URL;
 
 public class SetServerTask extends AsyncTask<Request, Void, Response> {
 
-    MainActivity mainActivity;
-    GameActivity gameActivity;
+    @SuppressLint("StaticFieldLeak")
+    private MainActivity mainActivity;
+    @SuppressLint("StaticFieldLeak")
+    private GameActivity gameActivity;
+
+
+    private String currentRequest;
 
     //    final GameActivity gameActivity;
 //
@@ -34,9 +39,11 @@ public class SetServerTask extends AsyncTask<Request, Void, Response> {
 //        this.gameActivity = activity;
 //    }
 
+
     public Response requestToSetServer(Request req) {
         Gson gson = new Gson();
         // TODO: указывайте нужный порт
+        currentRequest = req.action;
         String API_URL = "http://194.176.114.21:8058";
         try {
             URL url = new URL(API_URL);
@@ -67,25 +74,47 @@ public class SetServerTask extends AsyncTask<Request, Void, Response> {
         return requestToSetServer(r);
     }
 
+//    @Override
+//    protected Response doInBackground(Request... requests) {
+//        return null;
+//    }
+
     @Override
     protected void onPostExecute(Response response) {
-        if (!(response.token == -1)) {
-            Log.d("mytag", "новый пользователь с токеном "+ response.token);
-            mainActivity.token = response.token;
-            startActivity();
 
-        } else {
-            startActivity();
-        }
+        if (currentRequest.equals("register")) addOrStartUser(response);
+        if (currentRequest.equals("fetch_cards")) gameActivity.response(response,currentRequest);
+        if (currentRequest.equals("take_set")) gameActivity.response(response, currentRequest);
 
 
     }
 
-    public void startActivity() {
+    private void startActivity() {
         Intent intent = new Intent(mainActivity, GameActivity.class);
         intent.putExtra("nickname", mainActivity.nickname);
         intent.putExtra("token", mainActivity.token);
         mainActivity.startActivity(intent);
 
     }
+
+    private void addOrStartUser(Response response) {
+        if (!(response.token == -1)) {
+            Log.d("mytag", "новый пользователь с токеном " + response.token);
+            mainActivity.token = response.token;
+            startActivity();
+
+        } else {
+            startActivity();
+        }
+    }
+
+//    private void getCardsFromResponse(Response response) {
+//        gameActivity.getCardsResponse(response.cards);
+//        //cardField.setCards(response.cards);
+//
+//    }
+//
+//    private void takeSetFromResponse(Response response) {
+//        gameActivity.takeSetResponse(response);
+//    }
 }

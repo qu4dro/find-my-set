@@ -4,13 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".GameActivity"
-    android:gravity="bottom">
+    android:background="@color/colorAccent"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    tools:context=".GameActivity">
 
+
+
+    <ru.orlovvv.SetCardsFieldView
+        android:id="@+id/setCardsFieldView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
     <TextView
+        android:text="@string/loginText"
         android:id="@+id/gameNickName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+
+            android:id="@+id/getCards"
+            android:text="@string/getCards"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="onTakeSet"
+            android:id="@+id/setCheck"
+            android:text="@string/setCheck"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </LinearLayout>

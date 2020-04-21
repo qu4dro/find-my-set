@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#424242</color>
+    <color name="colorPrimaryDark">#424242</color>
+    <color name="colorAccent">#424242</color>
     <color name="background">#000000</color>
-    <color name="text">#FFFFFF</color>
+    <color name="text">#000000</color>
+
+    <color name="bronze">#AD8A56</color>
+    <color name="silver">#D7D7D7</color>
+    <color name="gold">#C9B037</color>
+    <color name="black">#212121</color>
+    <color name="red">#c62828</color>
+    <color name="green">#205288</color>
+    <color name="tileColorM">#d7ccc8 </color>
+    <color name="tileColorR">#f4511e </color>
 </resources>
