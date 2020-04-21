@@ -77,14 +77,14 @@ public class SetCardsFieldView extends View {
 
             int cardBackground;
 
-            for (Card c : cards) {
-                int x2 = c.getX() + c.getWidth();
-                int y2 = c.getY() + c.getHeight();
-                cardBackground = getColor(c.getColor());
-                if (cardField.getSelectedCards().contains(c)) {
+            for (Card card : cards) {
+                int tmpX = card.getX() + card.getWidth();
+                int tmpY = card.getY() + card.getHeight();
+                cardBackground = getColor(card.getColor());
+                if (cardField.getSelectedCards().contains(card)) {
                     p.setColor(cardBackground);
                     p.setStrokeWidth(20);
-                    canvas.drawRoundRect(c.getX(), c.getY(), x2, y2, 25, 25, p);
+                    canvas.drawRoundRect(card.getX(), card.getY(), tmpX, tmpY, 25, 25, p);
                 } else {
                     p.setStrokeWidth(10);
 
@@ -93,20 +93,15 @@ public class SetCardsFieldView extends View {
 
                 p.setTextSize(100);
                 p.setStyle(Paint.Style.FILL);
-
-                canvas.drawOval(c.getX(), c.getY(), x2, y2, p);
-
-                p.setColor(getColorBorder(c.getFill()));
+                canvas.drawOval(card.getX(), card.getY(), tmpX, tmpY, p);
+                p.setColor(getColorBorder(card.getFill()));
                 p.setStyle(Paint.Style.STROKE);
-                canvas.drawOval(c.getX(), c.getY(), x2, y2, p);
-
+                canvas.drawOval(card.getX(), card.getY(), tmpX, tmpY, p);
                 p.setStrokeWidth(0);
                 p.setStyle(Paint.Style.FILL);
-
-                String moneyValue = String.valueOf(c.getShape() * 100);
-                String value = getValue(c.getCount());
-
-                canvas.drawText(moneyValue + "" + value, x2 - c.getWidth() + 50, y2 - (c.getWidth() / 2) + 30, p);
+                String moneyValue = String.valueOf(card.getShape() * 100);
+                String value = getValue(card.getCount());
+                canvas.drawText(moneyValue + "" + value, tmpX - card.getWidth() + 50, tmpY - (card.getWidth() / 2) + 30, p);
 
             }
         }

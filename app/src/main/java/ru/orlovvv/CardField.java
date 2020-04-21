@@ -42,17 +42,17 @@ public class CardField {
         int x = 20;
         int y = 20;
 
-        int card_width = (width - 100) / 3;
-        int card_height = card_width;
+        int cardWidth = (width - 100) / 3;
+        int cardHeight = cardWidth;
 
         for (Card c : cards) {
-            c.setDrawableValues(x, y, card_width, card_height);
+            c.setDrawableValues(x, y, cardWidth, cardHeight);
 
-            x += card_width + 20;
+            x += cardWidth + 20;
 
-            if ((x + card_width) > width) {
+            if ((x + cardWidth) > width) {
                 x = 20;
-                y += card_height + 20;
+                y += cardHeight + 20;
             }
         }
 
