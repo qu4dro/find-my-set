@@ -1,10 +1,5 @@
 package ru.orlovvv;
 
-import android.graphics.Canvas;
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
 import java.util.ArrayList;
 
 public class CardField {
@@ -16,7 +11,6 @@ public class CardField {
         this.cards = cards;
         this.selectedCards = new ArrayList<>();
     }
-
 
     public boolean cardTouched(float x, float y) {
         for (Card c : cards) {
@@ -68,16 +62,9 @@ public class CardField {
         return cards;
     }
 
-    public void setCards(ArrayList<Card> cards) {
-        this.cards = cards;
-    }
 
     public ArrayList<Card> getSelectedCards() {
         return selectedCards;
-    }
-
-    public void setSelectedCards(ArrayList<Card> selectedCards) {
-        this.selectedCards = selectedCards;
     }
 
 

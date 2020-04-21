@@ -17,7 +17,6 @@ public class GameActivity extends AppCompatActivity {
     SetCardsFieldView cardsFieldView;
     TextView gameNickName;
     Button getCardsButton, checkSetButton;
-    //ArrayList<Card> cards;
     int token;
 
     @Override
@@ -36,46 +35,8 @@ public class GameActivity extends AppCompatActivity {
         cardsFieldView = findViewById(R.id.setCardsFieldView);
 
 
-
     }
 
-
-//    public void getCards() {
-//        Request getCardsRequest = new Request("fetch_cards", token);
-//        SetServerTask task = new SetServerTask(this);
-//        task.execute(getCardsRequest);
-//
-//    }
-//
-//    public void takeSet() {
-//        ArrayList<Card> set = cardsFieldView.checkSet();
-//        Log.d("mytag", "takeSet: " + set);
-////        if(set != null) {
-//            Log.d("mytag", "takeSet: " + set);
-//            Request getCardsRequest = new Request("take_set", token, set);
-//            Log.d("mytag", "takeSet: " + cardsFieldView.checkSet());
-//            SetServerTask task = new SetServerTask(this);
-//            task.execute(getCardsRequest);
-////        }
-//
-//    }
-
-//    public void takeSetResponse(Response response) {
-//        Log.d("mytag", "takeSetResponse: " + response.status);
-//        getCards();
-//    }
-//
-//    public void getCardsResponse(ArrayList<Card> cards) {
-//        //Log.d("mytag", "getCardsResponse before: " + cardsFieldView.getCardField());
-//        cardsFieldView.setCardField(new CardField(cards));
-//       // Log.d("mytag", "getCardsResponse after: " + cardsFieldView.getCardField());
-//    }
-//
-    public void onGetCardsClick(View v) {
-//       getCards();
-        Log.d("mytag", "onGetCardsClick: " + 1);
-
-    }
 
     public void onTakeSet(View v) {
 //        takeSet();
