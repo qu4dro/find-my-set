@@ -10,12 +10,12 @@ import androidx.annotation.RequiresApi;
 public class Card {
 
     int count, fill, shape, color;
-    int x, y, width, height;
+    transient int x, y, width, height;
 
 
-    public Card(int fill, int count, int shape, int color) {
-        this.fill = fill;
+    public Card(int count, int fill, int shape, int color) {
         this.count = count;
+        this.fill = fill;
         this.shape = shape;
         this.color = color;
     }
@@ -47,8 +47,8 @@ public class Card {
 
 
     public static Card getThird(final Card firstCard, final Card secondCard) {
-        return new Card(getThirdValue(firstCard.fill, secondCard.fill),
-                getThirdValue(firstCard.count, secondCard.count),
+        return new Card(getThirdValue(firstCard.count, secondCard.count),
+                getThirdValue(firstCard.fill, secondCard.fill),
                 getThirdValue(firstCard.shape, secondCard.shape),
                 getThirdValue(firstCard.color, secondCard.color)
         );

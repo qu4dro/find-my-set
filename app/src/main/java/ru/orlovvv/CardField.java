@@ -58,6 +58,27 @@ public class CardField {
 
     }
 
+    public boolean findSet() {
+        selectedCards.clear();
+
+        for (int i = 0; i < cards.size(); i++) {
+            for (int j = i + 1; j < cards.size(); j++) {
+                Card card = Card.getThird(cards.get(i), cards.get(j));
+
+
+                if (cards.contains(card)) {
+                    selectedCards.add(cards.get(i));
+                    selectedCards.add(card);
+                    selectedCards.add(cards.get(j));
+
+                    return true;
+                }
+            }
+
+        }
+        return false;
+    }
+
     public ArrayList<Card> getCards() {
         return cards;
     }

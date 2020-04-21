@@ -33,6 +33,17 @@ public class SetCardsFieldView extends View {
     }
 
 
+    public void findSet() {
+        if (cardField.findSet() != true) {
+            Toast toast = Toast.makeText(getContext(),
+                    "Сетов больше нет", Toast.LENGTH_LONG);
+            toast.show();
+
+        }
+        invalidate();
+    }
+
+
     public ArrayList<Card> checkSet() {
 
         if (cardField.isSelectedAreSet(cardField.getSelectedCards())) {
@@ -43,9 +54,9 @@ public class SetCardsFieldView extends View {
             Toast toast = Toast.makeText(getContext(),
                     "Это не сет", Toast.LENGTH_LONG);
             toast.show();
-            invalidate();
-        }
 
+        }
+        invalidate();
         return null;
     }
 

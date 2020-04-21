@@ -3,6 +3,8 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="login">Login</string>
     <string name="loginText">Введите свой логин</string>
-    <string name="getCards">Получить карты</string>
+    <string name="findSet">Найти сет</string>
     <string name="setCheck">Отправить сет</string>
+    <string name="points">Очков:</string>
+    <string name="cardsLeft">Карт осталось:</string>
 </resources>
