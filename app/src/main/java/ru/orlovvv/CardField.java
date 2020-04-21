@@ -53,6 +53,7 @@ public class CardField {
             if ((x + cardWidth) > width) {
                 x = 20;
                 y += cardHeight + 20;
+
             }
         }
 

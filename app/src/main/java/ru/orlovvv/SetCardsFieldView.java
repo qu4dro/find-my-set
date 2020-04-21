@@ -48,12 +48,15 @@ public class SetCardsFieldView extends View {
 
         if (cardField.isSelectedAreSet(cardField.getSelectedCards())) {
             Log.d("mytag", "checkSet: " + "SET");
+            invalidate();
             return cardField.getSelectedCards();
+
 
         } else {
             Toast toast = Toast.makeText(getContext(),
                     "Это не сет", Toast.LENGTH_LONG);
             toast.show();
+            cardField.getSelectedCards().clear();
 
         }
         invalidate();
